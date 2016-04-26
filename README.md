@@ -14,12 +14,12 @@ Se você quiser utilizar este material de qualquer forma, eu peço que por favor
 ### Citação deste trabalho
 Se você for utilizar este trabalho, por favor diga à sua audiência que eu mandei um “oi!”:
 
-Felipe Campelo (2016), _Computação Evolutiva_. Online: []() Versão preliminar 0.1.0; Creative Commons BY-NC-ND 4.0.
+Felipe Campelo (2016), _Computação Evolutiva_. Online: [https://github.com/fcampelo/Intro-Computacao-Evolutiva](https://github.com/fcampelo/Intro-Computacao-Evolutiva) Versão preliminar 0.1.0; Creative Commons BY-NC-ND 4.0.
 
     @Misc{Campelo2016-CEintro,
     title={Computação Evolutiva},
     author={Felipe Campelo}, 
-    howPublished={\url{}}, 
+    howPublished={\url{https://github.com/fcampelo/Intro-Computacao-Evolutiva}}, 
     year={2016},
     note={Versão preliminar 0.1.0; Creative Commons BY-NC-ND 4.0.}}
 
