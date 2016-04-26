@@ -1,0 +1,293 @@
+%============================================================================%
+% Arquivo fonte raiz do livro de otimização                                  %
+%============================================================================%
+%\documentclass[11pt,portuges]{book}
+\documentclass[12pt,A4]{article}   %Opcoes: abnt,article,book,report,slide.
+%============================================================================%
+%Editado por Jaime (20/07/2009): os arquivos iniotim.tex e define.tex foram transferidos para a
+%pasta /arquivos
+%\input{./arquivos/iniotim}
+
+\usepackage[brazilian]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage{makeidx}
+\usepackage{color}
+\usepackage{cite}
+%\usepackage[cam]{crop}
+\usepackage{geometry}
+\usepackage{algorithmic}
+\usepackage[table]{xcolor}
+\usepackage[lined,linesnumbered,ruled]{algorithm2e}
+%\usepackage[lined,portugues,linesnumbered,ruled]{algorithm2e}
+%============================================================================%
+\geometry{paperwidth=210mm,paperheight=297mm,
+          textwidth=150mm,textheight=210mm,
+          top=30mm,bottom=30mm,
+          left=30mm,right=30mm}
+%============================================================================%
+% insere a marca d'água
+\usepackage{type1cm}
+\usepackage{eso-pic}
+
+\makeatletter
+%\AddToShipoutPicture{%
+%            \setlength{\@tempdimb}{.5\paperwidth}%
+%            \setlength{\@tempdimc}{.5\paperheight}%
+%            \setlength{\unitlength}{1pt}%
+%            \put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){%
+%        \makebox(0,0){\rotatebox{45}{\textcolor[gray]{0.75}%
+%        {\fontsize{6cm}{6cm}\selectfont{DRAFT}}}}%
+%            }%
+%}
+\makeatother
+%============================================================================%
+\makeindex
+\hyphenation{com-pri-men-to}
+
+%============================================================================%
+\begin{document}
+
+%\frontmatter
+
+\section*{Otimização Evolutiva}
+\label{cap:AlgEvoOtim}
+%\markboth{\sc Otimização}{\sc Algoritmos Evolutivos}
+%\subsection*{Introdução}
+Aqui entra uma introdução...
+
+%Nos capítulos anteriores, estudamos estratégias de otimização para a busca do ponto de mínimo em problemas de otimização com e sem restrições. Os métodos tratados no capítulo \ref{cap:MetNumIrr}, embora poderosos, baseiam-se em algumas premissas fundamentais: (i) unimodalidade, (ii) convexidade (ou quase-convexidade) das funções, e (iii) diferenciabilidade da função objetivo e das restrições. Embora as técnicas apresentadas até agora funcionem muito bem dentro destas condições, a violação destas pode comprometer seriamente as características de convergência de métodos baseados em informações locais de decrescimento da função objetivo, ou seja, estratégias de direções de busca e de exclusão de semi-espaços (ver Capítulo \ref{cap:componentes}). Problemas multimodais, multi-escala e não-diferenciáveis tendem a aparecer com certa frequência em várias situações práticas, e requerem uma abordagem diferente para seu tratamento e solução.
+
+%Uma classe de métodos de otimização frequentemente utilizada para a solução de problemas apresentando as características discutidas acima são os \textit{métodos de populações}, nos quais uma população de soluções-candidato (em contraste com a solução-candidato única utilizada até agora) é utilizada para amostrar iterativamente o espaço de busca, de forma a estimar a localização do ponto de ótimo global\footnote{É frequentemente impossível determinar se um dado ponto é ou não o ótimo global de um dado problema, particularmente, mas não exclusivamente, quando modelos do tipo \textit{caixa-preta} são utilizados. Uma afirmação mais honesta é a de que métodos de populações são em geral capazes de encontrar bons ótimos locais, que podem ou não ser globais.}. 
+
+%Esta amostragem por múltiplos pontos, juntamente com características estocásticas inerentes à maioria destes métodos, permite que métodos de populações escapem de bacias de atração definidas por mínimos locais de desempenho mais pobre em favor de outras regiões mais promissoras do espaço de soluções. Além disto, por dispensarem o uso de gradientes ou sub-gradientes das funções envolvidas, estes métodos são apropriados para a otimização de problemas onde não se possa garantir a diferenciabilidade das funções envolvidas.
+
+%Dentre os métodos de populações mais utilizados, uma família de algoritmos em particular ocupa uma posição de grande destaque. Os chamados \textit{algoritmos evolutivos} são técnicas baseadas em processos biológicos, mais especificamente nas dinâmicas que regem a evolução dos organismos vivos. Os processos naturais responsáveis pelo desenvolvimento de formas e processos biológicos tão finamente adaptados ao ambiente representam uma poderosa fonte de inspiração para técnicas de otimização, que é utilizada para o desenvolvimento de toda uma classe de métodos de populações que será descrita nos capítulos finais deste livro.
+
+%Este capítulo apresenta uma introdução a estes processos, e à biologia como fonte de metáforas úteis ao desenvolvimento de métodos computacionais para a solução de problemas. Por se tratar de uma abordagem diferente das já apresentadas neste livro, o capítulo se inicia com uma introdução a história do pensamento evolutivo, tanto no contexto de ciências biológicas quanto como inspiração para algoritmos de otimização. Após esta breve introdução, o capítulo prossegue com a descrição de um sistema evolutivo simples, e finalmente com a tradução dos conceitos desenvolvidos em um algoritmo evolutivo genérico. Os algoritmos que serão discutidos nos próximos capítulos seguem essa estratégia geral.
+
+\subsection*{Evolução por Seleção Natural}
+\begin{quote}
+\textit{Nada na biologia faz sentido, exceto à luz da evolução.}
+\begin{flushright}
+\small Theodosius Dobzhansky (1900-1975),\\geneticista e biólogo evolutivo. \normalsize
+\end{flushright}
+\end{quote}
+
+No contexto da biologia moderna, o termo \textit{evolução} se refere em geral à mudança gradual da composição genética média de uma determinada população de organismos, ao longo de sucessivas gerações, ou, nas palavras de Douglas Futuyma \cite{Futuyma1992}, ``\textit{evolução biológica (ou evolução orgânica) é a mudança nas propriedades das populações dos organismos que transcendem o período de vida de um único indivíduo}''. Enquanto que mudanças entre duas gerações sucessivas são, em geral, pequenas, o acúmulo destas ao longo de centenas ou milhares de gerações pode resultar em grandes alterações morfológicas e metabólicas na população em questão e que, dadas certas condições, resultar na diferenciação de uma nova espécie. 
+
+As origens do pensamento evolutivo remontam ao período grego clássico, quando ideias a respeito da transmutação de espécies foram concebidas pelo filósofo Anaximandro de Mileto (610 - 546 A.C.)\footnote{O que reforça a observação, repetida em tom humorístico, de que qualquer ideia supostamente original da era moderna já foi proposta por algum pensador grego há mais de 2500 anos.}, considerado como um dos primeiros cientistas empíricos e um dos primeiros pensadores a propor causas físicas, em oposição a místicas, para a explicação de fenômenos naturais. 
+
+Apesar deste e outros flertes iniciais com ideias evolutivas\footnote{Para uma visão mais geral da história das ideias evolutivas, ver referências \cite{Bowler2003a,Lovejoy1936a,Mayr1982a}.}, foi apenas na Inglaterra da segunda metade do século XVIII que conceitos relacionados a alguma forma de evolução orgânica começaram a ser seriamente discutidos nos círculos científicos. Pensadores como Maupertuis, Diderot, Buffon, Burnett e Goethe discutiram, com variados graus de seriedade, ideias como geração espontânea de vida a partir de matéria inanimada e criação contínua de seres vivos, em contraste às ideias então vigentes de criação única; e o conceito de que novas espécies poderiam surgir a partir do ``desdobramento''\footnote{A própria palavra \textit{evolução}, do latim \textit{evolutio}, que significa desenrolar ou desdobrar um pergaminho, contém um pouco deste conceito.} de potencialidades latentes em outras espécies \cite{Futuyma1992}. Ainda em 1796 Erasmus Darwin, em seu livro \textit{Zo\"{o}nomia}\cite{Darwin1794a}, discutia ideias como descendência comum, seleção sexual e reprodução diferenciada dos mais aptos, se adiantando a diversos conceitos propostas mais tarde por Jean-Baptiste Lamarck. No mesmo ano, Georges Cuivier provou pela primeira vez a realidade da extinção de espécies, ao apresentar seu estudo comparativo da anatomia de elefantes com a de fósseis de animais similares, como mastodontes e mamutes encontrados na Europa, e demonstrando conclusivamente que se tratavam de diferentes espécies.
+
+O início do século XIX trouxe uma efervescência ainda maior em torno de tópicos relacionados à evolução dos seres vivos. Em 1809, Lamarck publicou sua obra \textit{Philosophie Zoologique}\cite{Lamarck1809a} onde propunha, entre outras ideias, que fatores ambientais seriam responsáveis por mudanças na estrutura dos seres vivos; e que características úteis seriam preservadas e desenvolvidas pelos organismos, e características inúteis ou deletérias seriam descartadas. Embora na maioria dos casos os mecanismos propostos por Lamarck para tais fenômenos tenham sido posteriormente refutados, seu trabalho representa um divisor de águas na história do pensamento evolutivo, tendo sido, nas palavras de Douglas Futuyma, ``o primeiro defensor da evolução a não adotar soluções de compromisso'' \cite{Futuyma1992}.
+
+O livro de Lamarck elevou a ideia de evolução dos seres vivos ao status de tópico de discussão nos círculos científicos da Inglaterra Vitoriana. Ideias a respeito de seleção natural e evolução humana foram propostas em 1813 por William Wells; posteriormente, Patrick Matthew discutiu os conceitos de especiação e seleção natural em um obscuro livro sobre madeiras de uso naval, em 1831 \cite{Matthew1831a}. 
+
+Em dezembro deste mesmo ano, Charles Robert Darwin partiu para uma jornada de cinco anos como naturalista de bordo do navio \textit{HMS Beagle}. Durante suas viagens, Darwin recolheu milhares de espécimes animais e vegetais, incluindo fósseis, e coletou notas sobre anatomia e comportamento de animais e plantas ao redor do mundo. Após retornar à Inglaterra, empenhou-se em catalogar e em publicar seu diário de viagens \cite{Darwin1839a}. Foi durante este período pós-viagem que Darwin, influenciado pelo \textit{Ensaio Sobre o Princípio Populacional}\cite{Malthus1798a} de Thomas Malthus e por suas discussões com anatomistas britânicos, começou a vislumbrar os princípios da luta pela existência e da sobrevivência do mais apto, resumidas em seu princípio de seleção natural. Ciente das implicações de suas descobertas, Darwin trabalhou cuidadosamente no quarto de século após seu retorno, acumulando um grande volume de evidência em suporte a suas hipótese de evolução por seleção natural. Escreveu em 1844 um ensaio não publicado sobre seleção natural\cite{Darwin1844a}, e ainda estava trabalhando na elaboração de seu livro definitivo sobre o tema quando recebeu, em 1858, um manuscrito do jovem naturalista britânico Alfred Russel Wallace \cite{Wallace1858a}.
+
+Em seu manuscrito, Wallace descrevia conclusões obtidas após anos de estudos na Amazônia e nos arquipélagos da Malásia, a respeito dos mecanismos de seleção natural e sua importância na derivação de novas espécies a partir das existentes. Aconselhado por Charles Lyell e Joseph Hooker, Darwin apresentou à Linnean Society de Londres o manuscrito de Wallace juntamente com partes de seu ensaio de 1844\footnote{Darwin e Wallace são considerados hoje os co-descobridores da evolução por seleção natural.}. Mas foi apenas no final de 1859, após a publicação de \textit{Sobre a Origem das Espécies por Meio da Seleção Natural, ou a Preservação de Raças\footnote{Citando Richard Dawkins\cite{Dawkins2004a}: ``No subtítulo de  \textit{A Origem das Espécies}, a frase, frequentemente mal-interpretada, \textit{preservação de raças favorecidas} definitivamente não se refere a raças no sentido coloquial utilizado atualmente. Darwin escrevia em uma época anterior à classificação e compreensão adequada dos genes, mas, em termos modernos, o significado das \textit{raças favorecidas} seria algo como \textit{portadores de genes favorecidos}''.} Favorecidas na Luta pela Vida}\cite{Darwin1859a} , abreviado para seu nome mais conhecido - \textit{A Origem das Espécies} - após sua sétima edição em 1882, que a comunidade científica finalmente teve acesso ao imenso corpo de evidência reunido por Darwin em favor da teoria da evolução. 
+
+O final do século XIX e início do século XX testemunharam mudanças na atitude da comunidade científica internacional em relação às ideias evolutivas de Darwin, Wallace e outros. A redescoberta dos trabalhos do pai da genética, Gregor Mendel, sobre a herança discreta de características, foi inicialmente interpretada como uma contradição às ideias de variação contínua dos seres vivos, descrita por Darwin como parte de sua teoria. Coube ao nascente campo da genética de populações, desenvolvido principalmente por Ronald Fisher\cite{Fisher1930a}, J. B. S. Haldane\cite{Haldane1924-34} e Sewall Wright\cite{Wright1932a}, reconciliar os fatos da evolução com os da genética Mendeliana, demonstrando não apenas a compatibilidade destas ideias como sua íntima correlação na geração dos fenômenos observados no mundo natural. Este casamento da genética com a evolução veio a ser posteriormente conhecido como \textit{moderna síntese evolutiva} \cite{Huxley1942a}. A descoberta da molécula de DNA como agente da hereditariedade, publicada por Osvald Avery em 1944 \cite{Avery1944a}, e a identificação de sua estrutura por James Watson e Francis Crick em 1953 \cite{Watson1953a,Watson1953b} possibilitaram a análise genética comparativa de organismos, que vem, nas últimas décadas, fornecendo importantes dados sobre o passado evolutivo e os níveis de parentesco das mais diversas espécies de organismos que habitam a Terra.\footnote{Para o leitor mais interessado na evolução biológica, os livros de divulgação científica do biólogo britânico Richard Dawkins\cite{Dawkins2004a,Dawkins1986a} são em geral uma ótima referência sobre o tema.}
+
+\subsection*{Otimização evolutiva: uma breve história}
+Pode-se considerar que o campo da computação evolutiva tem suas origens em meados da década de 1950, nos experimentos sobre simbiogênese e evolução artificial realizados pelo matemático ítalo-norueguês Nils Barricelli \cite{Barricelli1954,Barricelli1957}, e nos trabalhos do geneticista britânico Alex Fraser sobre a simulação de processos evolutivos \cite{Fraser1957a,Fraser1957b}. Estes trabalhos pioneiros foram seguidos, no final dos anos 1950 e ao longo da década de 1960, por um número crescente de estudos no campo de biologia computacional, realizados por pesquisadores como o próprio Alex Fraser \cite{Fogel2002a}, Jack L. Crosby \cite{Crosby1961a,Crosby1970a}, Richard Friedberg \cite{Friedberg1958a,Friedberg1959a}, e Hans Bremermann \cite{Bremermann1962a,Anderson1995a,Fogel2000a}.
+
+Juntamente com este progresso na simulação dos sistemas biológicos, foram feitas algumas tentativas de empregar estes conceitos de evolução computacional para a solução de problemas matemáticos. Os trabalhos de Friedberg, por exemplo, tratavam, entre outras coisas, da tentativa de gerar programas computacionais simples, como um somador binário, a partir da evolução simulada de sequências de bits. Os trabalhos de Bremermann, em particular, foram pioneiros na aplicação de princípios de evolução artificial para a solução de problemas de programação linear. Em seu artigo de 1962 intitulado ``\textit{Optimization through evolution and recombination}''\cite{Bremermann1962a}, Bremermann sugere um otimizador evolutivo contendo elementos de mutação e cruzamento, o que torna este trabalho um dos mais, se não o mais, antigos registros de uma família de técnicas conhecidas atualmente como ``Algoritmos Genéticos'' (AGs).
+
+Ainda na década de 1960, os pesquisadores alemães Ingo Rechenberg, Hans Paul Schwefel e Peter Bienert conceberam um sistema evolutivo para a otimização de formas aerodinâmicas, no que pode ser considerada a primeira aplicação de princípios biológicos à solução de problemas de projeto em engenharia \cite{Schwefel1965a,Schwefel1968a,Beyer2002a}. Embora o método, baseado em mutações e no princípio de sobrevivência do mais apto, fosse utilizado inicialmente apenas para otimização experimental - isto é, para a variação de parâmetros em um modelo físico, sem o uso de computadores - sua capacidade para a geração de configurações ótimas em diversos problemas levou ao desenvolvimento de sua versão computacional no início da década de 1970, quando o método de Rechenberg e Schwefel - que ficou conhecido pelo nome de ``Estratégia Evolutiva'' (EE) - começou a ganhar popularidade como uma ferramenta de projeto eficiente para a solução de problemas complexos de engenharia.
+
+Enquanto Rechenberg, Schwefel e Bienert desenvolviam suas pesquisas na Alemanha, Lawrence J. Fogel desenvolvia, nos Estados Unidos, técnicas para a geração de inteligência artificial a partir da evolução de máquinas de estados finitos \cite{Fogel1964a,Fogel1969a}. Em outras palavras, ao invés de tentar modelar o produto final da evolução, neste caso neurônios e padrões de conexões nervosas, Fogel propôs a utilização dos próprios mecanismos evolutivos para se alcançar máquinas capazes de comportamento inteligente. As técnicas desenvolvidas por Fogel, baseadas também no uso de mutações em uma população de soluções sujeita a uma pressão seletiva, foram batizadas como ``Programação Evolutiva'' (PE). 
+
+As duas décadas seguintes representaram um desenvolvimento ainda maior das técnicas evolutivas para otimização. Os trabalhos de John Holland no início dos anos 1970 expandiram e popularizaram os algoritmos genéticos \cite{Holland1975a}, propondo, entre outros conceitos, bases teóricas para a análise do comportamento e capacidade adaptativa desta classe de algoritmos na forma da \textit{hipótese dos blocos de construção}, que sugere que o bom funcionamento dos algoritmos genéticos está associado à capacidade destes de gerar e manter boas soluções parciais para certas classes de problemas. Trabalhos utilizando programação evolutiva também se multiplicaram, particularmente no grupo de Donald Dearholt, onde a PE foi expandida para tratar de problemas gerais de otimização e reconhecimento de padrões, entre outros. E as ideias originais da estratégia evolutiva foram expandidas e aplicadas a um número crescente de problemas de engenharia pelos grupos de Schwefel e outros na Alemanha Ocidental. Os anos 1980 viram a consolidação destas técnicas como ferramentas de solução de uma gama cada vez maior de problemas, com o aparecimento das primeiras conferências especializadas em algoritmos evolutivos, como a primeira Conferência Internacional em Algoritmos Genéticos (ICGA'85) e o estabelecimento, por parte da comunidade de pesquisa em Estratégias Evolutivas, da primeira \textit{Paralell Problem Solving from Nature} (PPSN'90). O ano de 1989 trouxe ainda a publicação, por David E. Goldberg, do livro \textit{Genetic Algorithms in Search, Optimization, and Machine Learning}\cite{Goldberg1989a}, considerado até hoje como o mais influente na área de otimização utilizando AGs. Foi também nesta década que teve início uma tendência de unificação das três grandes famílias de técnicas baseadas na evolução de soluções - algoritmos genéticos, estratégias evolutivas e programação evolutiva - sob a definição de \textit{algoritmos evolutivos}, o que resultou, na primeira metade da década de 1990, na criação do primeiro periódico científico internacional dedicado exclusivamente a este campo: o \textit{Evolutionary Computation}, publicado pela \textit{MIT Press}.
+
+Uma quarta vertente no campo de algoritmos evolutivos para otimização surgiu em meados da década de 1990, a partir dos trabalhos de Kenneth Price e Rainer Storn para a solução de uma classe de problemas de regressão polinomial encontrada comumente na área de projeto de filtros eletrônicos \cite{Rabiner1975a}. O algoritmo de Storn e Price, batizado de ``evolução diferencial'' (ED) \cite{Storn1997a}, foi criado especificamente para a otimização de problemas com variáveis contínuas, e utiliza a diferenças entre vetores da população para implementar um procedimento de geração de novas soluções conhecido como \textit{mutação diferencial}. A boa performance de otimizadores baseados em ED em um crescente número de problemas \cite{Price2005a} nos últimos 14 anos tem atraído cada vez mais interesse para esta família de técnicas de otimização.
+
+Atualmente, o campo de otimização evolutiva encontra-se num estágio de maturação: os dois principais periódicos científicos dedicados a esta área, \textit{Evolutionary Computation} e \textit{IEEE Transactions on Evolutionary Computation}, apresentam um grande volume de trabalhos, tanto no campo de desenvolvimento teórico quanto no de aplicações e avaliações empíricas. Além disto, quatro grandes conferências: \textit{IEEE Congress on Evolutionary Computation} (CEC); \textit{Parallel Problem Solving from Nature} (PPSN); \textit{Genetic and Evolutionary Computation Conference} (GECCO); e \textit{Foundations of Genetic Algorithms} (FOGA), atestam para o grande interesse nesta linha de pesquisa apresentado pela comunidade científica. O leitor interessado pode encontrar maiores detalhes sobre a história e os rumos atuais da pesquisa em algoritmos evolutivos em diversas referências disponíveis na literatura \cite{deJong2006a,Fogel1998a}.
+
+% =========================================================
+\subsection*{Estrutura Geral de Algoritmos Evolutivos}
+Conforme visto na seção anterior, alguns autores têm relacionado os mecanismos do processo evolutivo com ideias oriundas da Ciência da Computação, buscando inspiração na abordagem lógica e procedural de linguagens de computador para descrever mecanismos da evolução a partir de um ponto de vista algorítmico. O filósofo norte-americano Daniel Dennett propõe, em seu livro \textit{A Perigosa Ideia de Darwin}\cite{Dennett2007}, a tese de que Charles Darwin, ao descrever suas ideias de origem das espécies por meio de seleção natural, definiu uma classe de algoritmos caracterizados pelas seguintes componentes:
+\begin{enumerate}
+\item Reprodução com \textit{hereditariedade};
+\item \textit{Variação} dos descendentes em relação aos progenitores;
+\item Um mecanismo de \textit{pressão seletiva}.
+\end{enumerate}
+
+Estes princípios, agindo sobre uma população de indivíduos, levariam fatalmente a um processo evolutivo, como já descrito pelo próprio Darwin\cite{Darwin1859a}:
+
+\begin{quote}
+``\textit{Como o número de indivíduos nascidos, para cada espécie, é muito maior do que o número dos que poderiam possivelmente sobreviver; e como, por consequência, a luta pela existência se renova a cada instante; segue-se que todo o ser que varia de maneira que lhe confira alguma vantagem, ainda que pequena, tem maior probabilidade de sobreviver, sendo consequentemente beneficiado pelas forças da seleção natural. Assim sendo, e em virtude do poderoso princípio da hereditariedade, tem-se que toda a variedade positivamente selecionada tenderá a propagar a sua nova forma modificada.}\footnote{``\textit{As many more individuals of each species are born than can possibly survive; and as, consequently, there is a frequently recurring struggle for existence, it follows that any being, if it vary however slightly in any manner profitable to itself, under the complex and sometimes varying conditions of life, will have a better chance of surviving, and thus be naturally selected. From the strong principle of inheritance, any selected variety will tend to propagate its new and modified form}.''}''
+\end{quote}
+
+Esta generalização, embora simples, sugere um poderoso processo de adaptação às condições ditadas pela componente de \textit{pressão seletiva}, sejam estas condições naturais ou artificiais. Os dois primeiros itens dos sistemas evolutivos definidos anteriormente podem ser descritos coloquialmente como ``geração de descendentes similares, mas não idênticos, aos progenitores''. A razão destes requerimentos é de fácil compreensão: sistemas onde os descendentes fossem idênticos aos pais, e consequentemente entre si, não forneceriam diferenças mensuráveis de sucesso entre os indivíduos, o que anularia o mecanismo de seleção. Similarmente, grupos onde os descendentes não herdassem as características de seus progenitores não possibilitariam o acúmulo de características favoráveis ao longo do tempo, novamente anulando os efeitos da pressão seletiva.
+
+\subsection*{Um Sistema Evolutivo}
+Para compreender o funcionamento destes mecanismos evolutivos em um ambiente computacional, vamos imaginar um exemplo simples, consistindo de uma população estável de organismos sujeitos à introdução de um novo predador em seu ambiente. Ao estudarmos a dinâmica evolutiva desta população, poderemos vislumbrar certos aspectos de sistemas evolutivos que os tornam capazes de resolver complexos problemas de engenharia.
+
+Considere uma população estável de cerca de 200 lagartos, vivendo, por um longo tempo, em uma determinada ilha onde não há predadores naturais. Vamos considerar, para fins de simplicidade, que a cor da pele destes lagartos seja determinada por um cromossomo composto por três genes, cada um expressando um determinado tipo de pigmento - vermelho, verde ou azul. Lembrando que o código genético é composto por sequências de 4 tipos de nucleotídeos\footnote{\textbf{A}denosina, \textbf{G}uanina, \textbf{T}imina e \textbf{C}itosina.}, é fácil pensar em cada gene de cor sendo composto por uma sequência de 4 letras ou, equivalentemente, 8 bits, capazes de representar 256 estados, ou níveis de intensidade, para cada pigmento.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth]{capitulo6/figuras/colorgenes.eps}
+	\caption{Codificação dos genes responsáveis pela cor de pele em uma população fictícia de lagartos. A cor de um determinado indivíduo é definida pelo vetor de componentes expressas, ilustrado na coluna mais à direita.}
+	\label{fig:cod}
+\end{figure}
+
+Vamos considerar, novamente para fins de simplicidade, que esta espécie de lagartos possua as seguintes características:
+
+\begin{itemize}
+\item Haplóide: cada indivíduo possui apenas uma cópia do cromossomo que codifica a cor de pele;
+\item Sexuada: a reprodução se dá pela combinação de dois indivíduos;
+\item Hermafrodita: sem distinção entre machos e fêmeas, todos os indivíduos são compatíveis para cruzamento.
+\end{itemize}
+
+Podemos agora definir certas características ambientais e comportamentais, na forma de regras simples, para a caracterização da dinâmica populacional desta espécie:
+
+\begin{enumerate}
+	\item De todos os lagartos nascidos, apenas 70\% sobrevivem até a idade adulta. Os demais morrem por causas aleatórias, como acidentes, doenças, etc.;
+	\item Todos os lagartos que chegam à idade adulta são capazes de se reproduzir, e o fazem através da escolha aleatória de parceiros. A reprodução resulta em um número de filhotes tal que o tamanho da população permanece estável;
+	\item Todos os adultos desta espécie morrem após a temporada de acasalamento e postura de ovos.
+	\item Esta população está sujeita a mutações genéticas eventuais. Tais mutações ocorrem com uma frequência média de 1 mutação para cada 100 nucleotídeos.
+\end{enumerate}
+
+Nestas condições, isto é, na ausência de uma componente de pressão seletiva, a distribuição de cores na população tende a flutuar de forma relativamente aleatória. De fato, se simularmos a dinâmica desta população ao longo de algumas gerações, vemos que a intensidade de cada componente de cor apresenta grande variação na população, conforme ilustrado pelos pontos coloridos na Figura \ref{fig:cores-nopressure}. A intensidade média de cada componente, representada pelos círculos pretos, tende a variar de forma mais ou menos aleatória ao redor do valor esperado para uma distribuição uniforme, embora pequenos desvios possam ocorrer devido a um fenômeno conhecido como \textit{deriva genética} \cite{Futuyma1992}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth]{capitulo6/figuras/colors-nopressure.eps}
+	\caption{Valores expressos das componentes de cor para uma população sem pressão seletiva. Pontos coloridos indicam a ocorrência de pelo menos uma instância de um dado valor, e círculos pretos representam a média das componentes em cada geração.}
+	\label{fig:cores-nopressure}
+\end{figure}
+
+Antes de passarmos aos efeitos que um predador introduziria neste ambiente, vamos parar por um instante e refletir sobre as seguintes questões: como é simulada a reprodução nesta população? E a mutação? Como traduzir estas idéias biológicas em termos computacionais? Embora existam muitas respostas possíveis para estas questões - com variados graus de fidelidade aos modelos biológicos naturais - vamos nos ater aqui às mais simples. Uma abordagem mais detalhada do cruzamento e mutação em sistemas evolutivos artificiais - onde estes fenômenos são conhecidos pelo nome \textit{operadores genéticos} - será dada no Capítulo \ref{cap:AlgGeneticos}.
+
+Na natureza, a reprodução sexuada, isto é, pelo cruzamento de dois indivíduos, representa a geração de novos seres a partir da mistura da informação genética dos progenitores. Uma forma simples de implementar esta idéia consiste em recombinar porções dos genes de nossos organismos artificiais, conforme ilustrado na Figura \ref{fig:crossover}. Observe que porções dos genes relativos a cada componente de cor são misturados, dando origem a novos indivíduos portadores de parte dos genes de cada um dos pais.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth]{capitulo6/figuras/cruzamento.eps}
+	\caption{Geração de um novo indivíduo (\textbf{D}) a partir do cruzamento de dois progenitores (\textbf{P1} e \textbf{P2}). Os genes do descendente são formados a partir da mistura da informação genética de seus antepassados. O indivíduo-filho ainda pode estar sujeito a mutações, como, por exemplo, a substituição do primeiro nucleotídeo do gene que codifica a cor verde.}
+	\label{fig:crossover}
+\end{figure}
+
+Assim como o cruzamento, a mutação também é um fenômeno facilmente implementável em um sistema evolutivo artificial. Na natureza, diz-se que ocorreu uma mutação quando um determinado nucleotídeo da cadeia de DNA é substituído por outro, seja devido a erros de cópia ou pela ação de agentes mutagênicos. Em nossa população de lagartos digitais, a mutação ocorre de maneira análoga, através da substituição aleatória de um determinado nucleotídeo por outro. Como exemplo, basta imaginar o primeiro \textbf{A} do gene verde do indivíduo-filho ilustrado na Figura \ref{fig:crossover} sendo substituído por um \textbf{G}. Nas simulações desta seção, consideramos que a probabilidade de um dado nucleotídeo sofrer mutação é de cerca de 1\%. Embora esta taxa seja certamente maior que as encontradas na natureza, ela é suficiente para tornar significativos os efeitos deste fenômeno na dinâmica evolutiva de nossos organismos simulados, sem contudo destruir a característica de hereditariedade necessária ao processo.
+
+Feitas estas considerações, imaginemos agora que uma nova espécie de predador seja introduzida ao ambiente, e que este predador se utilize de visão cromática para localizar suas presas. Com isto, acrescenta-se a este sistema uma componente de pressão evolutiva, pois torna-se mais vantajoso para um determinado indivíduo possuir uma coloração similar à do ambiente, de forma a escapar da detecção pelo predador. Se considerarmos como medida da camuflagem de um certo indivíduo a diferença entre a sua cor e a cor média de seu ambiente (podemos chamar esta medida de \textit{contraste}), torna-se fácil modelar a ação do predador na população na forma de uma outra regra simples:
+
+\begin{enumerate}
+	\setcounter{enumi}{4}
+	\item De todos os lagartos nascidos, os 20\% menos camuflados, ou seja, com maior contraste em relação ao ambiente, são devorados por predadores antes de chegarem à idade adulta;
+\end{enumerate}
+
+Neste cenário, podemos representar o contraste como a distância euclidiana entre o vetor de cor do indivíduo e o vetor de cor média do ambiente:
+
+\begin{equation}
+\label{eq:contraste}
+f\left(P_i\right) = \left\|\vec{c}_{i} - \vec{c}_{am}\right\|
+\end{equation}
+
+\noindent onde $\vec{c}_i$ é o vetor de componentes de cor do indivíduo $P_i$, conforme ilustrado na Figura \ref{fig:cod}, e $\vec{c}_{am}$ representa a cor média do ambiente. Nesta definição, indivíduos que apresentem menores valores de $f$, ou seja, de contraste, terão uma vantagem evolutiva sobre aqueles com maiores valores desta medida. 
+Se relembrarmos as conjecturas da teoria evolutiva mencionadas no início desta seção, o efeito esperado da introdução desta pressão evolutiva deverá ser tal que ``\textit{a variedade positivamente selecionada tenderá a propagar a sua nova forma modificada}''. Em outras palavras, valores das componentes de cor que resultem em indivíduos de menor contraste tenderão a se propagar e se estabelecer na população ao longo do tempo.
+
+Os efeitos desta mudança no ambiente após a geração 25 da população são ilustrados nas Figuras \ref{fig:colors-evolution}-\ref{fig:evo}. A Figura \ref{fig:colors-evolution} ilustra as frequências de ocorrência de cada componente de cor antes e depois da introdução do predador, observando que as primeiras 25 gerações são idênticas às ilustradas na Figura \ref{fig:cores-nopressure}. É interessante notar que, de acordo com o previsto, houve uma redução significativa na ocorrência de boa parte dos valores possíveis para cada uma das componentes de cor, com as variações mais vantajosas dominando completamente o espaço genético da população. O efeito desta mudança na composição genética média dos indivíduos pode ser vista na Figura \ref{fig:contraste}, na forma de uma redução gradativa dos contrastes médio e mínimo da população ao longo das gerações que se seguem à introdução do predador. 
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth]{capitulo6/figuras/colors-evolution.eps}
+	\caption{Evolução das componentes de cor na população. Após a introdução do predador (linha pontilhada), nota-se uma acentuada tendência de preservação das componentes mais favorecidas em detrimento das menos eficazes.}
+	\label{fig:colors-evolution}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth]{capitulo6/figuras/contraste.eps}
+	\caption{Evolução da capacidade de camuflagem da população, representada através de uma medida de contraste. A presença de um predador após a geração 25, destacada pela linha pontilhada, introduz uma componente de pressão seletiva que gradualmente leva a população a evoluir uma melhor camuflagem, ou seja, um menor contraste. Nas gerações finais deste processo, nota-se que a capacidade de camuflagem média dos indivíduos se torna bastante similar à do melhor indivíduo, indicando que os valores genéticos que possibilitam esta característica são compartilhados por boa parte da população.}
+	\label{fig:contraste}
+\end{figure}
+
+\begin{figure}[htbp]
+     \centering
+     \subfigure[Geração 25]{
+          \label{fig:evo-gen25}
+                %\psfrag{ylabel}{$\frac{1}{\sigma}\frac{\rmd\sigma}{\rmd\ptsq}\gev^2$}
+                %\psfrag{xlabel}{\small{$\ptsq\gev^2$}}
+          \includegraphics[width=.4\textwidth]{capitulo6/figuras/geckos-g025.eps}}
+     \hspace{.15in}
+     \subfigure[Geração 50]{
+          \label{fig:evo-gen50}
+                %\psfrag{ylabel}{$\frac{1}{\sigma}\frac{\rmd\sigma}{\rmd\ptsq}\gev^2$}
+                %\psfrag{xlabel}{\small{$\ptsq\gev^2$}}
+          \includegraphics[width=.4\textwidth]{capitulo6/figuras/geckos-g050.eps}}\\
+     \vspace{.1in}
+%     \hspace{.1in}
+     \subfigure[Geração 75]{
+          \label{fig:evo-gen75}
+                %\psfrag{ylabel}{$\frac{1}{\sigma}\frac{\rmd\sigma}{\rmd\ptsq}\gev^2$}
+                %\psfrag{xlabel}{\small{$\ptsq\gev^2$}}
+          \includegraphics[width=.4\textwidth]{capitulo6/figuras/geckos-g075.eps}}
+          \hspace{.15in}
+     \subfigure[Geração 100]{
+          \label{fig:evo-gen100}
+                %\psfrag{ylabel}{$\frac{1}{\sigma}\frac{\rmd\sigma}{\rmd\ptsq}\gev^2$}
+                %\psfrag{xlabel}{\small{$\ptsq\gev^2$}}
+          \includegraphics[width=.4\textwidth]{capitulo6/figuras/geckos-g100.eps}}
+     \caption{Indivíduos amostrados aleatoriamente em diferentes momentos de tempo. Os indivíduos da geração 25 (a) representam a população antes da introdução do predador. É interessante notar a progressiva melhora na capacidade de camuflagem dos lagartos à medida em que as gerações vão passando, o que ilustra bem o efeito da pressão evolutiva nesta população.}
+     \label{fig:evo}
+\end{figure}
+
+Por fim, a Figura \ref{fig:evo} ilustra este processo evolutivo a partir de indivíduos representativos da população em diferentes momentos. Em um primeiro momento (geração 25), anterior à pressão evolutiva introduzida pelo predador, vê-se que, embora hajam indivíduos capazes de se camuflar, também ocorrem indivíduos com alto contraste em relação ao ambiente de fundo. À medida em que o predador, através da eliminação dos menos aptos, vai exercendo uma pressão seletiva em favor dos indivíduos de menor contraste, observa-se que a população vai se tornando progressivamente mais difícil de distinguir em relação ao fundo. Considerando que a visão cromática dos seres humanos está entre as mais desenvolvidas do reino animal, o fato de que a maioria de nós tem dificuldade de observar os lagartos nas gerações mais avançadas torna fácil a extrapolação para um predador enfrentando uma crescente dificuldade em encontrar suas presas.
+
+\subsection*{Algoritmos evolutivos}
+Após examinarmos o exemplo da seção anterior, estamos agora prontos para examinar as questões centrais relacionadas à implementação e uso de algoritmos evolutivos para otimização. Muitas já foram tratadas de forma implícita na evolução da população de lagartos fictícios, e serão discutidas aqui de forma um pouco mais detalhada.
+
+Como apresentado no início desta seção, tem-se que sistemas evolutivos, sejam eles naturais ou não, são compostos por três componentes básicos: hereditariedade, variação e pressão seletiva agindo sobre uma dada população. Além disto, vimos no exemplo anterior que a aplicação da pressão seletiva em um sistema evolutivo resulta no deslocamento de uma determinada medida de desempenho na direção das características positivamente selecionadas.
+
+A partir destas considerações, a analogia entre a dinâmica de sistemas evolutivos e o processo de otimização discutido nos capítulos anteriores torna-se clara, com a pressão evolutiva representada por uma função-objetivo a ser minimizada, ou, de maneira mais geral, por alguma métrica que permita uma comparação quantitativa do desempenho dos diferentes indivíduos; e a população de indivíduos representando soluções-candidato para o problema. Enquanto que diferentes abordagens de otimização baseadas em idéias evolutivas serão tratadas em detalhe nos capítulos seguintes, podemos desde já definir uma estrutura genérica para um algoritmo evolutivo de otimização, como a ilustrada pelo Algoritmo \ref{alg:genevol}.
+
+\begin{algorithm}
+\caption{Estrutura Genérica para Algoritmos Evolutivos}
+\label{alg:genevol}
+%\dontprintsemicolon
+\Entrada{Tamanho da população ($\mu$), Espaço de busca ($\mathcal{X}$), Funções objetivo e de restrição ($f\left(\cdot\right)$, $\mathbf{g}\left(\cdot\right)$, $\mathbf{h}\left(\cdot\right)$), Critérios de parada ($Q$)}
+\Saida{Estimativa(s) da solução ótima ($x^*$) na população final.}
+\Inicio{
+	$P^{(0)}\leftarrow$ Inicializar população$\left(\mu,\mathcal{X}\right)$\;
+	$t\leftarrow 0$\;
+	\Enqto{$\neg Q$}{
+		$\Phi^{(t)}\leftarrow$ Avaliar$\left(P^{(t)}\ ,f\left(\cdot\right)\ ,\mathbf{g}\left(\cdot\right)\ , \mathbf{h}\left(\cdot\right)\right)$\;
+		$S{(t)}\leftarrow$ Selecionar$\left(P^{(t)}\ ,\Phi^{(t)}\right)$\;
+		$V{(t)}\leftarrow$ Modificar$\left(S^{(t)}\right)$\;
+		$P^{(t+1)}\leftarrow$ Atualizar População$\left(P^{(t)}\ ,V^{(t)}\right)$\;
+		$t\leftarrow t+1$\;
+		}
+  }
+\end{algorithm}
+
+Algoritmos evolutivos implementam estas componentes de formas diferentes e, em alguns casos, em momentos distintos de cada iteração (ou \textit{geração}, no jargão de algoritmos evolutivos). Independentemente da implementação escolhida para cada um destes passos, entretanto, um dado algoritmo evolutivo deve abordar, antes de mais nada, as seguintes questões:
+
+\subsubsection*{Representação}
+A primeira questão fundamental na implementação de qualquer algoritmo de otimização evolutivo é a questão da representação, ou codificação do espaço de variáveis. No exemplo de sistema evolutivo, utilizamos uma representação através do alfabeto discreto $\left\{A,C,G,T\right\}$, com cada uma destas letras sendo traduzida para um número inteiro através de seu equivalente binário. Porém, embora a natureza opere desta forma, nada impede que outras representações sejam utilizadas. A codificação binária das variáveis é uma das as mais frequentes na literatura de técnicas evolutivas, devido principalmente a seu amplo uso em algoritmos genéticos. Já em várias áreas de otimização aplicada a engenharia, é comum encontrar algoritmos evolutivos de codificação real, onde os valores das variáveis do problema são utilizados diretamente pelos métodos evolutivos, sem a necessidade de codificações intermediárias. 
+
+\subsubsection*{Avaliação da Qualidade}
+Assim como nos métodos baseados em direções de busca, explorados nos capítulos anteriores, técnicas evolutivas também necessitam de funções capazes de atribuir valores numéricos de qualidade às soluções-candidato geradas ao longo do processo de otimização. Algumas técnicas específicas, como por exemplo o operador de \textit{seleção por roleta} (Seção \ref{selrol}), exigem que todos os valores de desempenho das diferentes soluções sejam positivos, o que frequentemente exige modificações nas rotinas de avaliação da função objetivo, ou pseudo-objetivo, no caso de problemas restritos tratados pelas técnicas de penalização discutidas na Seção \ref{penalidades}. Em boa parte dos casos, entretanto, é possível utilizar diretamente a função objetivo como medida do sucesso evolutivo de um dado indivíduo.
+
+\subsubsection*{Seleção}
+Outro aspecto crucial para o bom funcionamento de um algoritmo evolutivo é a definição dos mecanismos de seleção. Enquanto que no exemplo foi utilizado apenas um mecanismo muito simples, definido pela eliminação determinística dos 20\% menos aptos, ou, equivalentemente, pela sobrevivência dos 80\% melhores, há formas muito mais sofisticadas de se implementar a pressão seletiva para métodos de otimização. Estes métodos em geral se dividem entre seleção para reprodução, ou seja, quais indivíduos serão utilizados para a geração de novas soluções; e seleção para sobrevivência, através da qual são escolhidas as soluções que comporão a população na próxima geração. Diferentes operadores de seleção são descritos nos capítulos seguintes, e cada um possui suas próprias características e limitações.
+
+\subsubsection*{Operadores de Variação}
+Os operadores de variação representam diferentes mecanismos de exploração do espaço de soluções pela população de um algoritmo evolutivo. Se relembrarmos o exemplo utilizado neste capítulo, foram utilizados dois operadores: cruzamento, no qual a informação genética de dois indivíduos é combinada para a geração de uma nova solução; e mutação, onde parte desta informação é intencional e aleatoriamente modificada. De um outro ponto de vista, é possível enxergar estes dois operadores como representando, respectivamente, a combinação de informação existente e a exploração de novas combinações possivelmente inéditas na população. Entretanto, assim como no caso da representação, algoritmos evolutivos podem apresentar outros operadores que não necessariamente possuem paralelos na natureza, como por exemplo o cruzamento com mais de dois progenitores explorado nas estratégias evolutivas (Seção \ref{EScross}), ou operadores de busca local.
+
+\subsection*{Conclusões}
+\bibliographystyle{abnt-num}
+\bibliography{otimizacao}
+%============================================================================%
+\end{document}
+%============================================================================%

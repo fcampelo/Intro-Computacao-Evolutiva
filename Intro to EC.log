@@ -1,0 +1,726 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.8.1)  25 JAN 2014 16:59
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"Intro to EC.tex"
+(./Intro to EC.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2013/05/16 v3.9f The Babel package
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/babel-portuges/portuges.ldf
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2013/05/16 v3.9f Babel common definitions
+\babel@savecnt=\count87
+\U@D=\dimen103
+)
+\l@brazilian = a dialect from \language\l@portuges 
+Package babel Info: Making " an active character on input line 145.
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip43
+\subfigcapskip=\skip44
+\subfigcaptopadj=\dimen106
+\subfigbottomskip=\skip45
+\subfigcapmargin=\dimen107
+\subfiglabelskip=\skip46
+\c@subfigure=\count89
+\c@lofdepth=\count90
+\c@subtable=\count91
+\c@lotdepth=\count92
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2013/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip47
+\subfig@bottom=\skip48
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen108
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen109
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count93
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count94
+\leftroot@=\count95
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count96
+\DOTSCASE@=\count97
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen110
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count98
+\c@MaxMatrixCols=\count99
+\dotsspace@=\muskip10
+\c@parentequation=\count100
+\dspbrk@lvl=\count101
+\tag@help=\toks18
+\row@=\count102
+\column@=\count103
+\maxfields@=\count104
+\andhelp@=\toks19
+\eqnshift@=\dimen111
+\alignsep@=\dimen112
+\tagshift@=\dimen113
+\tagwidth@=\dimen114
+\totwidth@=\dimen115
+\lineht@=\dimen116
+\@envbody=\toks20
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen117
+\epsfysize=\dimen118
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psfrag/psfrag.sty
+Package: psfrag 1998/04/11 v3.04 PSfrag (MCG)
+\pfg@pcount=\count105
+\pfg@scount=\count106
+\pfg@temp=\write3
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count107
+\Gm@cntv=\count108
+\c@Gm@tempcnt=\count109
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@layoutwidth=\dimen123
+\Gm@layoutheight=\dimen124
+\Gm@layouthoffset=\dimen125
+\Gm@layoutvoffset=\dimen126
+\Gm@dimlist=\toks22
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@ALC@unique=\count110
+\c@ALC@line=\count111
+\c@ALC@rem=\count112
+\c@ALC@depth=\count113
+\ALC@tlm=\skip52
+\algorithmicindent=\skip53
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen127
+\extrarowheight=\dimen128
+\NC@list=\toks23
+\extratabsurround=\skip54
+\backup@length=\skip55
+)
+\everycr=\toks24
+\minrowclearance=\skip56
+)
+LaTeX Info: Redefining \color on input line 702.
+\rownum=\count114
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count115
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+********************************************************
+Package `algorithm2e' Release 5.0 -- january 06 2013 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (cfiorio@um2.fr)
+********************************************************
+\skiptotal=\skip57
+\skiplinenumber=\skip58
+\skiprule=\skip59
+\skiphlne=\skip60
+\skiptext=\skip61
+\skiplength=\skip62
+\algomargin=\skip63
+\skipalgocfslide=\skip64
+\algowidth=\dimen129
+\inoutsize=\dimen130
+\inoutindent=\dimen131
+\interspacetitleruled=\dimen132
+\interspacealgoruled=\dimen133
+\interspacetitleboxruled=\dimen134
+\algocf@inoutbox=\box28
+\algocf@inputbox=\box29
+\AlCapSkip=\skip65
+\AlCapHSkip=\skip66
+\algoskipindent=\skip67
+\algocf@nlbox=\box30
+\algocf@hangingbox=\box31
+\algocf@untilbox=\box32
+\algocf@skipuntil=\skip68
+\algocf@capbox=\box33
+\algoheightruledefault=\skip69
+\algoheightrule=\skip70
+\algotitleheightruledefault=\skip71
+\algotitleheightrule=\skip72
+\c@algocfline=\count116
+\c@algocfproc=\count117
+\c@algocf=\count118
+\algocf@algoframe=\box34
+\algocf@algobox=\box35
+)
+
+Package geometry Warning: Over-specification in `h'-direction.
+    `width' (426.79134pt) is ignored.
+
+
+Package geometry Warning: Over-specification in `v'-direction.
+    `height' (597.50787pt) is ignored.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/type1cm/type1cm.sty
+Package: type1cm 2002/09/05 v0.04 BlueSky/Y&Y Type1 CM font definitions (DPC, p
+atched RF)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2010/10/06 v2.0c eso-pic (RN)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+))
+\@indexfile=\write4
+\openout4 = `"Intro to EC.idx"'.
+
+
+Writing index file "Intro to EC".idx
+
+LaTeX Warning: Unused global option(s):
+    [A4].
+
+(./Intro to EC.aux)
+\openout1 = `"Intro to EC.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count119
+\scratchdimen=\dimen135
+\scratchbox=\box36
+\nofMPsegments=\count120
+\nofMParguments=\count121
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen136
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
+\everyMPtoPDFconversion=\toks26
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-23.91173pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box37
+[1
+Non-PDF special ignored!
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+ [4] [5]
+Package epstopdf Info: Source file: <capitulo6/figuras/colorgenes.eps>
+(epstopdf)                    date: 2009-10-02 00:03:03
+(epstopdf)                    size: 163769 bytes
+(epstopdf)             Output file: <capitulo6/figuras/colorgenes-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:42
+(epstopdf)                    size: 32534 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/colorgen
+es-eps-converted-to.pdf capitulo6/figuras/colorgenes.eps>
+(epstopdf)             \includegraphics on input line 139.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/colorgenes-eps-converted-to.pdf, id=25, 1198.4775pt x 437.63
+5pt>
+File: capitulo6/figuras/colorgenes-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use capitulo6/figuras/colorgenes-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/colorgenes-eps-converted-to.pdf used
+ on input line 139.
+(pdftex.def)             Requested size: 341.43437pt x 124.67384pt.
+ [6 <./capitulo6/figuras/colorgenes-eps-converted-to.pdf>]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 147.
+Package epstopdf Info: Source file: <capitulo6/figuras/colors-nopressure.eps>
+(epstopdf)                    date: 2009-10-02 03:28:50
+(epstopdf)                    size: 203705 bytes
+(epstopdf)             Output file: <capitulo6/figuras/colors-nopressure-eps-co
+nverted-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:43
+(epstopdf)                    size: 29783 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/colors-n
+opressure-eps-converted-to.pdf capitulo6/figuras/colors-nopressure.eps>
+(epstopdf)             \includegraphics on input line 165.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/colors-nopressure-eps-converted-to.pdf, id=33, 1072.005pt x 
+836.12375pt>
+File: capitulo6/figuras/colors-nopressure-eps-converted-to.pdf Graphic file (ty
+pe pdf)
+ <use capitulo6/figuras/colors-nopressure-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/colors-nopressure-eps-converted-to.p
+df used on input line 165.
+(pdftex.def)             Requested size: 341.43437pt x 266.302pt.
+
+
+LaTeX Warning: Reference `cap:AlgGeneticos' on page 7 undefined on input line 1
+70.
+
+Package epstopdf Info: Source file: <capitulo6/figuras/cruzamento.eps>
+(epstopdf)                    date: 2009-10-01 23:38:40
+(epstopdf)                    size: 261565 bytes
+(epstopdf)             Output file: <capitulo6/figuras/cruzamento-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:44
+(epstopdf)                    size: 52047 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/cruzamen
+to-eps-converted-to.pdf capitulo6/figuras/cruzamento.eps>
+(epstopdf)             \includegraphics on input line 176.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/cruzamento-eps-converted-to.pdf, id=34, 1244.65pt x 717.6812
+4pt>
+File: capitulo6/figuras/cruzamento-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use capitulo6/figuras/cruzamento-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/cruzamento-eps-converted-to.pdf used
+ on input line 176.
+(pdftex.def)             Requested size: 341.43437pt x 196.87563pt.
+ [7] [8 <./capitulo6/figuras/colors-nopressure-eps-converted-to.pdf> <./capitul
+o6/figuras/cruzamento-eps-converted-to.pdf>] [9]
+Package epstopdf Info: Source file: <capitulo6/figuras/colors-evolution.eps>
+(epstopdf)                    date: 2009-10-02 03:48:08
+(epstopdf)                    size: 336661 bytes
+(epstopdf)             Output file: <capitulo6/figuras/colors-evolution-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:45
+(epstopdf)                    size: 40134 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/colors-e
+volution-eps-converted-to.pdf capitulo6/figuras/colors-evolution.eps>
+(epstopdf)             \includegraphics on input line 204.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/colors-evolution-eps-converted-to.pdf, id=54, 1078.0275pt x 
+836.12375pt>
+File: capitulo6/figuras/colors-evolution-eps-converted-to.pdf Graphic file (typ
+e pdf)
+ <use capitulo6/figuras/colors-evolution-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/colors-evolution-eps-converted-to.pd
+f used on input line 204.
+(pdftex.def)             Requested size: 341.43437pt x 264.82205pt.
+Package epstopdf Info: Source file: <capitulo6/figuras/contraste.eps>
+(epstopdf)                    date: 2009-10-02 04:25:14
+(epstopdf)                    size: 104285 bytes
+(epstopdf)             Output file: <capitulo6/figuras/contraste-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:46
+(epstopdf)                    size: 17294 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/contrast
+e-eps-converted-to.pdf capitulo6/figuras/contraste.eps>
+(epstopdf)             \includegraphics on input line 211.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/contraste-eps-converted-to.pdf, id=55, 1072.005pt x 596.2275
+pt>
+File: capitulo6/figuras/contraste-eps-converted-to.pdf Graphic file (type pdf)
+ <use capitulo6/figuras/contraste-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/contraste-eps-converted-to.pdf used 
+on input line 211.
+(pdftex.def)             Requested size: 341.43437pt x 189.89603pt.
+Package epstopdf Info: Source file: <capitulo6/figuras/geckos-g025.eps>
+(epstopdf)                    date: 2009-10-02 03:27:40
+(epstopdf)                    size: 2272606 bytes
+(epstopdf)             Output file: <capitulo6/figuras/geckos-g025-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:47
+(epstopdf)                    size: 296363 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/geckos-g
+025-eps-converted-to.pdf capitulo6/figuras/geckos-g025.eps>
+(epstopdf)             \includegraphics on input line 222.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/geckos-g025-eps-converted-to.pdf, id=56, 793.96625pt x 793.9
+6625pt>
+File: capitulo6/figuras/geckos-g025-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use capitulo6/figuras/geckos-g025-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/geckos-g025-eps-converted-to.pdf use
+d on input line 222.
+(pdftex.def)             Requested size: 170.71393pt x 170.71153pt.
+Package epstopdf Info: Source file: <capitulo6/figuras/geckos-g050.eps>
+(epstopdf)                    date: 2009-10-02 03:26:55
+(epstopdf)                    size: 2272590 bytes
+(epstopdf)             Output file: <capitulo6/figuras/geckos-g050-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:48
+(epstopdf)                    size: 289723 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/geckos-g
+050-eps-converted-to.pdf capitulo6/figuras/geckos-g050.eps>
+(epstopdf)             \includegraphics on input line 228.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/geckos-g050-eps-converted-to.pdf, id=57, 793.96625pt x 793.9
+6625pt>
+File: capitulo6/figuras/geckos-g050-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use capitulo6/figuras/geckos-g050-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/geckos-g050-eps-converted-to.pdf use
+d on input line 228.
+(pdftex.def)             Requested size: 170.71393pt x 170.71153pt.
+Package epstopdf Info: Source file: <capitulo6/figuras/geckos-g075.eps>
+(epstopdf)                    date: 2009-10-02 03:29:52
+(epstopdf)                    size: 2272600 bytes
+(epstopdf)             Output file: <capitulo6/figuras/geckos-g075-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:49
+(epstopdf)                    size: 287559 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/geckos-g
+075-eps-converted-to.pdf capitulo6/figuras/geckos-g075.eps>
+(epstopdf)             \includegraphics on input line 235.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/geckos-g075-eps-converted-to.pdf, id=58, 793.96625pt x 793.9
+6625pt>
+File: capitulo6/figuras/geckos-g075-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use capitulo6/figuras/geckos-g075-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/geckos-g075-eps-converted-to.pdf use
+d on input line 235.
+(pdftex.def)             Requested size: 170.71393pt x 170.71153pt.
+Package epstopdf Info: Source file: <capitulo6/figuras/geckos-g100.eps>
+(epstopdf)                    date: 2009-10-02 03:28:29
+(epstopdf)                    size: 2272609 bytes
+(epstopdf)             Output file: <capitulo6/figuras/geckos-g100-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2011-05-16 21:10:50
+(epstopdf)                    size: 288218 bytes
+(epstopdf)             Command: <repstopdf --outfile=capitulo6/figuras/geckos-g
+100-eps-converted-to.pdf capitulo6/figuras/geckos-g100.eps>
+(epstopdf)             \includegraphics on input line 241.
+Package epstopdf Info: Output file is already uptodate.
+
+<capitulo6/figuras/geckos-g100-eps-converted-to.pdf, id=59, 793.96625pt x 793.9
+6625pt>
+File: capitulo6/figuras/geckos-g100-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use capitulo6/figuras/geckos-g100-eps-converted-to.pdf>
+Package pdftex.def Info: capitulo6/figuras/geckos-g100-eps-converted-to.pdf use
+d on input line 241.
+(pdftex.def)             Requested size: 170.71393pt x 170.71153pt.
+ [10 <./capitulo6/figuras/colors-evolution-eps-converted-to.pdf>]
+Overfull \hbox (0.6431pt too wide) in paragraph at lines 277--278
+\OT1/cmr/m/n/12 miza^^Xc~ao evo-lu-tivo ^^Se a quest~ao da re-pre-senta^^Xc~ao,
+ ou co-di-fica^^Xc~ao do espa^^Xco de vari^^Saveis.
+ []
+
+[11 <./capitulo6/figuras/contraste-eps-converted-to.pdf>] [12 <./capitulo6/figu
+ras/geckos-g025-eps-converted-to.pdf> <./capitulo6/figuras/geckos-g050-eps-conv
+erted-to.pdf> <./capitulo6/figuras/geckos-g075-eps-converted-to.pdf> <./capitul
+o6/figuras/geckos-g100-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `selrol' on page 13 undefined on input line 280.
+
+
+LaTeX Warning: Reference `penalidades' on page 13 undefined on input line 280.
+
+[13]
+
+LaTeX Warning: Reference `EScross' on page 14 undefined on input line 286.
+
+(./Intro to EC.bbl [14]
+Underfull \hbox (badness 2753) in paragraph at lines 81--85
+[]\OT1/cmr/m/n/12 Wright, S. The ro-les of mu-ta-tion, in-bre-e-ding, cros-s-br
+e-e-ding and se-
+ []
+
+
+Underfull \hbox (badness 6808) in paragraph at lines 81--85
+\OT1/cmr/m/n/12 lec-tion in evo-lu-tion. In: \OT1/cmr/m/it/12 Pro-ce-e-dings of
+ the 6th In-ter-na-ti-o-nal Con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--85
+\OT1/cmr/m/it/12 gress on Ge-ne-tics\OT1/cmr/m/n/12 . [s.n.], 1932. v. 1, p. 35
+6--366. Dis-pon^^S^^Pvel em:
+ []
+
+
+Underfull \hbox (badness 1052) in paragraph at lines 121--124
+[]\OT1/cmr/m/n/12 Barricelli, N. A. Sym-bi-o-ge-ne-tic evo-lu-tion pro-ces-ses 
+re-a-li-zed by ar-ti-fi-cial
+ []
+
+[15] [16]) [17] (./Intro to EC.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 6127 strings out of 493315
+ 85085 string characters out of 6137905
+ 189823 words of memory out of 5000000
+ 9446 multiletter control sequences out of 15000+600000
+ 13426 words of font info for 51 fonts, out of 8000000 for 9000
+ 958 hyphenation exceptions out of 8191
+ 41i,15n,35p,2206b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on "Intro to EC.pdf" (17 pages, 1529721 bytes).
+PDF statistics:
+ 151 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+

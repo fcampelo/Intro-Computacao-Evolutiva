@@ -1,0 +1,131 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Intro to EC.aux
+The style file: abnt-num.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: otimizacao.bib
+I was expecting a `,' or a `}'---line 532 of file otimizacao.bib
+ :   
+ :   url = {http://www.gutenberg.org/etext/15707}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 539 of file otimizacao.bib
+ :   
+ :   url = {http://records.viu.ca/~johnstoi/lamarck/tofc.htm}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 546 of file otimizacao.bib
+ :   
+ :   url = {http://books.google.com/books?id=9jdokTHF35MC&dq=Naval+Timber+\%26+Arboriculture}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 553 of file otimizacao.bib
+ :   
+ :   url = {http://www.gutenberg.org/etext/3704}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 560 of file otimizacao.bib
+ :   
+ :   url = {http://www.econlib.org/library/Malthus/malPop.html}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 565 of file otimizacao.bib
+ :   
+ :   year = {1859},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 575 of file otimizacao.bib
+ :   
+ :   year = {1930},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 586 of file otimizacao.bib
+ :   
+ :   url = {http://www.gutenberg.org/etext/3704}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 594 of file otimizacao.bib
+ : 
+ : note = {Uma série de 10 artigos publicados entre 1924 e 1934.},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 731 of file otimizacao.bib
+ :   title     = {Immune algorithm with searching diversity and its application to resource allocation problem}, 
+ :                                                                                                               %%???????????????????????????????
+I'm skipping whatever remains of this entry
+You're missing a field name---line 742 of file otimizacao.bib
+ :   title     = {Immune System and its Application to Production Scheduling Systems}, 
+ :                                                                                     %?????????????????????
+I'm skipping whatever remains of this entry
+You're missing a field name---line 779 of file otimizacao.bib
+ :   title     = {Application of an immune algorithm to multi-optimization problems}, 
+ :                                                                                    %???????????????????
+I'm skipping whatever remains of this entry
+You're missing a field name---line 796 of file otimizacao.bib
+ :   
+ :   %url = {http://profiles.nlm.nih.gov/CC/A/A/B/Y/_/ccaaby.pdf}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 938 of file otimizacao.bib
+ : 
+ : %url = {http://darwin-online.org.uk/content/frameset?itemID=F1556&viewtype=text&pageseq=1}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--campo year vazio ou faltando em Darwin1859a
+Warning--campo year vazio ou faltando em Fisher1930a
++---------------------------------------------------------+
+| Estilo bibliográfico abnt-num.bst versão 1.37           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://abntex.codigolivre.org.br                        |
++---------------------------------------------------------+
+You've used 46 entries,
+            5887 wiz_defined-function locations,
+            1339 strings with 14297 characters,
+and the built_in function-call counts, 30463 in all, are:
+= -- 2432
+> -- 749
+< -- 53
++ -- 332
+- -- 233
+* -- 1940
+:= -- 4067
+add.period$ -- 150
+call.type$ -- 46
+change.case$ -- 358
+chr.to.int$ -- 101
+cite$ -- 48
+duplicate$ -- 1733
+empty$ -- 2609
+format.name$ -- 1178
+if$ -- 7294
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 782
+newline$ -- 216
+num.names$ -- 177
+pop$ -- 1105
+preamble$ -- 1
+purify$ -- 152
+quote$ -- 0
+skip$ -- 1720
+stack$ -- 1
+substring$ -- 1297
+swap$ -- 770
+text.length$ -- 34
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 2
+while$ -- 265
+width$ -- 0
+write$ -- 600
+(There were 14 error messages)
